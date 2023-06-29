@@ -10,6 +10,8 @@ public class Handguard : UdonSharpBehaviour
 
     public Parts Parts;
     //public Panel Panel;
+    public Cover Cover;
+    public RearSight RearSight;
     public Settings Settings;
     public Detachments Detachments;
 
@@ -17,7 +19,7 @@ public class Handguard : UdonSharpBehaviour
     public UdonBehaviour rearSight;
     public UdonBehaviour panel;
 
-    //ハンドガードGameObject
+    //ハンドガード
     public GameObject hg_default; //Default Handguard
     public GameObject hg_wooden1; //AKM Wooden Handguard
     public GameObject hg_wooden2; //VPO-136 Wooden Handguard
@@ -58,18 +60,7 @@ public class Handguard : UdonSharpBehaviour
     public GameObject hg_gasBlock4; //UltiMAK M1-B Handguard
     public GameObject hg_vsGasBlock; //Handguard Gas Block for VS
 
-    //チェック用トップカバー変数
-    public GameObject cover_default;
-    public GameObject cover_bastion;
-    public GameObject cover_pdc;
-    public GameObject cover_dogLeg;
-    public GameObject cover_b33;
-
-    //チェック用リアサイト変数
-    public GameObject rs_default;
-    public GameObject rs_tt01;
-
-    //チェック用ガスブロック変数
+    //ガスブロック
     public GameObject gb_vdm;
     public GameObject gb_default;
 
@@ -80,7 +71,7 @@ public class Handguard : UdonSharpBehaviour
 
     public void attachDefault()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_default.SetActive(true);
@@ -90,7 +81,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_default = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -99,7 +90,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachWooden1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_wooden1.SetActive(true);
@@ -109,7 +100,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_wooden1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -118,7 +109,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachWooden2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_wooden2.SetActive(true);
@@ -128,7 +119,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_wooden2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -137,7 +128,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachWooden3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_wooden3.SetActive(true);
@@ -147,7 +138,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_wooden3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -156,7 +147,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachWoodenGrip()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_woodenGrip.SetActive(true);
@@ -166,7 +157,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_woodenGrip = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -175,7 +166,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachPolymer1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_polymer1.SetActive(true);
@@ -186,7 +177,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_polymer1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -195,7 +186,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachPolymer2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_polymer2.SetActive(true);
@@ -205,7 +196,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_polymer2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -214,7 +205,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachPolymerRail()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_polymerRail.SetActive(true);
@@ -224,7 +215,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_polymerRail = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -233,7 +224,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulA1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulA1.SetActive(true);
@@ -243,7 +234,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulA1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -252,7 +243,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulA2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulA2.SetActive(true);
@@ -262,7 +253,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulA2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -271,7 +262,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulA3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulA3.SetActive(true);
@@ -281,7 +272,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulA3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -290,7 +281,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulA4()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulA4.SetActive(true);
@@ -300,7 +291,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulA4 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -309,7 +300,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulA5()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulA5.SetActive(true);
@@ -319,7 +310,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulA5 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -328,7 +319,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulB1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulB1.SetActive(true);
@@ -338,7 +329,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulB1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -347,7 +338,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulB2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulB2.SetActive(true);
@@ -357,7 +348,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulB2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -366,7 +357,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMagpulB3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_magpulB3.SetActive(true);
@@ -376,7 +367,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_magpulB3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -385,7 +376,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachQuadRail1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_quadRail1.SetActive(true);
@@ -395,7 +386,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_quadRail1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -404,7 +395,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachQuadRail2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_quadRail2.SetActive(true);
@@ -414,7 +405,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_quadRail2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -423,15 +414,15 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachQuadRail3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
-            if (!cover_bastion.activeSelf)
+            if (!Cover.coverBastion.activeSelf)
             {
-                if (!cover_dogLeg.activeSelf)
+                if (!Cover.coverDogLeg.activeSelf)
                 {
-                    if (!cover_pdc.activeSelf)
+                    if (!Cover.coverPDC.activeSelf)
                     {
-                        if (!rs_tt01.activeSelf)
+                        if (!RearSight.TT01Rear.activeSelf)
                         {
                             SendCustomEvent("disableAll");
                             hg_quadRail3.SetActive(true);
@@ -441,35 +432,35 @@ public class Handguard : UdonSharpBehaviour
                             Parts.parts1_hg_quadRail3 = true;
                             SendCustomEvent("check");
                         }
-                        if (rs_tt01.activeSelf)
+                        if (RearSight.TT01Rear.activeSelf)
                         {
                             error.SetActive(true);
                             errorPartText.text = Parts.parts1_rs_tt01_text;
                             Detachments.detach1TT01 = true;
                         }
                     }
-                    if (cover_pdc.activeSelf)
+                    if (Cover.coverPDC.activeSelf)
                     {
                         error.SetActive(true);
                         errorPartText.text = Parts.parts1_cover_pdc_text;
                         Detachments.detach1PDC = true;
                     }
                 }
-                if (cover_dogLeg.activeSelf)
+                if (Cover.coverDogLeg.activeSelf)
                 {
                     error.SetActive(true);
                     errorPartText.text = Parts.parts1_cover_dogLeg_text;
                     Detachments.detach1DogLeg = true;
                 }
             }
-            if (cover_bastion.activeSelf)
+            if (Cover.coverBastion.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_cover_bastion_text;
                 Detachments.detach1Bastion = true;
             }
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -478,7 +469,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachHexagon1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_hexagon1.SetActive(true);
@@ -489,7 +480,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_hexagon1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -498,7 +489,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachHexagon2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_hexagon2.SetActive(true);
@@ -509,7 +500,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_hexagon2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -518,7 +509,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachKeymod1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_keymod1.SetActive(true);
@@ -528,7 +519,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_keymod1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -537,7 +528,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachKeymod2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_keymod2.SetActive(true);
@@ -547,7 +538,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_keymod2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -556,7 +547,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachKeymod3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_keymod3.SetActive(true);
@@ -566,7 +557,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_keymod3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -576,7 +567,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachKeymod4()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_keymod4.SetActive(true);
@@ -586,7 +577,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_keymod4 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -595,7 +586,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMlok1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_mlok1.SetActive(true);
@@ -605,7 +596,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_mlok1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -614,7 +605,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMlok2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_mlok2.SetActive(true);
@@ -624,7 +615,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_mlok2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -633,7 +624,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachMlok3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_mlok3.SetActive(true);
@@ -643,7 +634,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_mlok3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -652,7 +643,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachZenit1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_zenit1.SetActive(true);
@@ -662,7 +653,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_zenit1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -671,7 +662,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachZenit2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_zenit2.SetActive(true);
@@ -681,7 +672,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_zenit2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -690,7 +681,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachZenit3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_zenit3.SetActive(true);
@@ -700,7 +691,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_zenit3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -709,7 +700,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachGasBlock1()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_gasBlock1.SetActive(true);
@@ -718,7 +709,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_gasBlock1 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -727,7 +718,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachGasBlock2()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_gasBlock2.SetActive(true);
@@ -737,7 +728,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_gasBlock2 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -746,7 +737,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachGasBlock3()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_gasBlock3.SetActive(true);
@@ -756,7 +747,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_gasBlock3 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
@@ -765,7 +756,7 @@ public class Handguard : UdonSharpBehaviour
     }
     public void attachGasBlock4()
     {
-        if (!cover_b33.activeSelf)
+        if (!Cover.coverZenit.activeSelf)
         {
             SendCustomEvent("disableAll");
             hg_gasBlock4.SetActive(true);
@@ -775,7 +766,7 @@ public class Handguard : UdonSharpBehaviour
             Parts.parts1_hg_gasBlock4 = true;
             SendCustomEvent("check");
         }
-        if (cover_b33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;

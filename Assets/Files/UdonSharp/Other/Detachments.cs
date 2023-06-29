@@ -14,6 +14,7 @@ public class Detachments : UdonSharpBehaviour
     public Handguard Handguard;
     public Parts Parts;
     public Panel Panel;
+    public PanelColor PanelColor;
 
     public UnityEngine.UI.Text errorPartText;
     public GameObject error;
@@ -68,14 +69,12 @@ public class Detachments : UdonSharpBehaviour
         if (detach1Default == true)
         {
             RearSight.defaultRear.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_default = false;
             RearSight.SendCustomEvent("check");
         }
         if (detach1TT01 == true)
         {
             RearSight.TT01Rear.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_tt01 = false;
             RearSight.SendCustomEvent("check");
         }
@@ -84,7 +83,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_keymod3.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_keymod3 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -92,7 +90,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_quadRail2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_quadRail2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -100,7 +97,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_default.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_default = false;
             Handguard.SendCustomEvent("check");
         }
@@ -109,7 +105,6 @@ public class Detachments : UdonSharpBehaviour
             Handguard.hg_polymer1.SetActive(false);
             Handguard.hg_polymerBase.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_polymer1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -117,7 +112,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_polymer2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_polymer2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -125,7 +119,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulA1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulA1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -133,7 +126,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulA2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulA2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -141,7 +133,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulA3.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulA3 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -149,7 +140,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulA4.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulA4 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -157,7 +147,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulA5.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulA5 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -165,7 +154,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_wooden1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_wooden1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -173,7 +161,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_wooden2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_wooden2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -181,7 +168,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_wooden3.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_wooden3 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -189,7 +175,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_keymod1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_keymod1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -197,7 +182,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_hexagon1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_hexagon1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -205,7 +189,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_hexagon2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_hexagon2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -213,7 +196,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_keymod2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_keymod2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -221,7 +203,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_zenit1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_zenit1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -229,7 +210,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulB1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulB1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -237,7 +217,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulB2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulB2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -245,7 +224,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_magpulB3.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_magpulB3 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -253,7 +231,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_polymerRail.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_polymerRail = false;
             Handguard.SendCustomEvent("check");
         }
@@ -261,7 +238,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_quadRail1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_polymerRail = false;
             Handguard.SendCustomEvent("check");
         }
@@ -269,7 +245,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_mlok1.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_mlok1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -277,7 +252,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_mlok2.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_mlok2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -285,7 +259,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_mlok3.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_mlok3 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -293,7 +266,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_woodenGrip.SetActive(false);
             Handguard.gb_default.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_woodenGrip = false;
             Handguard.SendCustomEvent("check");
         }
@@ -301,21 +273,18 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_keymod4.SetActive(false);
             Handguard.gb_vdm.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_keymod4 = false;
             Handguard.SendCustomEvent("check");
         }
         if (detach1m1b == true)
         {
             Handguard.hg_gasBlock4.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_gasBlock4 = false;
             Handguard.SendCustomEvent("check");
         }
         if (detach1Troy == true)
         {
             Handguard.hg_gasBlock1.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_gasBlock1 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -323,7 +292,6 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_gasBlock2.SetActive(false);
             Handguard.hg_vsGasBlock.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_gasBlock2 = false;
             Handguard.SendCustomEvent("check");
         }
@@ -331,30 +299,31 @@ public class Detachments : UdonSharpBehaviour
         {
             Handguard.hg_gasBlock3.SetActive(false);
             Handguard.hg_vsGasBlock.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_hg_gasBlock3 = false;
             Handguard.SendCustomEvent("check");
         }
         if (detach1Bastion == true)
         {
             RearSight.SendCustomEvent("detachBastion");
-            SendCustomEvent("allDetachIsFalse");
             RearSight.SendCustomEvent("check");
         }
         if (detach1B33 == true)
         {
             RearSight.defaultRear.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_default = false;
             RearSight.SendCustomEvent("check");
         }
         if (detach1PDC == true)
         {
             RearSight.TT01Rear.SetActive(false);
-            SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_tt01 = false;
             RearSight.SendCustomEvent("check");
         }
+
+        SendCustomEvent("allDetachIsFalse");
+        error.SetActive(false);
+        PanelColor.SendCustomEvent("check");
+
     }
     public void allDetachIsFalse()
     {
@@ -379,7 +348,7 @@ public class Detachments : UdonSharpBehaviour
         detach1HexRed = false;
         detach1Cmrd = false;
         detach1B10 = false;
-        detach1ZhukovBlk = false;   
+        detach1ZhukovBlk = false;
         detach1ZhukovFde = false;
         detach1ZhukovPlum = false;
         detach1Ak100 = false;

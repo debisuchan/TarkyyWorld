@@ -6,63 +6,31 @@ using VRC.SDKBase;
 using VRC.Udon;
 public class Cover : UdonSharpBehaviour
 {
-
+    public UdonBehaviour rearSight;
+    public UdonBehaviour panel;
+    public UdonBehaviour handguard;
     public Parts Parts;
     public Detachments Detachments;
     public Settings Settings;
+    public Handguard Handguard;
+    public RearSight RearSight;
+
     public int language = 0;
 
     public GameObject coverDefault;
     public GameObject coverBastion;
-    public GameObject coverPDC;
     public GameObject coverDogLeg;
     public GameObject coverZenit;
-    public GameObject defaultRear;
-    public GameObject tt01;
+    public GameObject coverPDC;
+
     public GameObject error;
-    public GameObject HGtdiX47;
-    public GameObject HGovgp;
     public UnityEngine.UI.Text errorPartText;
-    public UdonBehaviour rearSight;
-    public UdonBehaviour panel;
-    public UdonBehaviour handguard;
+
     public string topCover = "";
     public string defaultText = "";
     public string l_rearSight = "";
     public string handGuard = "";
-    public GameObject HGb10m;
-    public GameObject HGb30;
-    public GameObject HGrs47;
-    public GameObject HGdefault;
-    public GameObject HGdefaultPoly;
-    public GameObject HGmoeBlk;
-    public GameObject HGmoeFde;
-    public GameObject HGmoeOd;
-    public GameObject HGmoePlum;
-    public GameObject HGmoeSg;
-    public GameObject HGwooden1; //AKM Wooden Handguard
-    public GameObject HGwooden2; //VPO-136 Wooden Handguard
-    public GameObject HGwooden3; //VPO-209 Wooden Handguard
-    public GameObject HGtrax1;
-    public GameObject HGhexagonBlk;
-    public GameObject HGhexagonRed;
-    public GameObject HGcmrd;
-    public GameObject HGb10;
-    public GameObject HGzhukovBlk;
-    public GameObject HGzhukovFde;
-    public GameObject HGZhukovPlum;
-    public GameObject HGak100Poly;
-    public GameObject HGdefaultPlum;
-    public GameObject HGaggressor;
-    public GameObject HGakmLBlk; //TDI AKM-L Handguard Black
-    public GameObject HGwasr; //WASR-10/63 CAF Wooden Handguard
-    public GameObject HGakmLRed; //TDI AKM-L Handguard Red
-    public GameObject HGakmLBr; //TDI AKM-L Handguard Bronze
-    public GameObject HGUFM; //Krebs Custom UFM KeyMod Handguard
-    public GameObject HGm1b; //UltiMAK M1-B Handguard
-    public GameObject HGtroy; //TROY Full Length Rail Handguard
-    public GameObject HGVSCombo; //Vezhlivyy Strelok Handguard
-    public GameObject HGVSComboW; //Vezhlivyy Strelok White Handguard
+
     //ここから　言語設定
     public void langJP()
     {
@@ -110,7 +78,7 @@ public class Cover : UdonSharpBehaviour
     }
     public void attachBastion()
     {
-        if (!defaultRear.activeSelf && !tt01.activeSelf && !HGtdiX47.activeSelf && !HGovgp.activeSelf)
+        if (!RearSight.defaultRear.activeSelf && !RearSight.TT01Rear.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             SendCustomEvent("disableAll");
             coverBastion.SetActive(true);
@@ -119,25 +87,25 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_bastion = true;
             SendCustomEvent("check");
         }
-        if (HGovgp.activeSelf)
+        if (Handguard.hg_keymod3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_keymod3_text;
             Detachments.detach1OVGP = true;
         }
-        if (HGtdiX47.activeSelf)
+        if (Handguard.hg_quadRail3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_quadRail3_text;
             Detachments.detach1TDX47 = true;
         }
-        if (tt01.activeSelf)
+        if (RearSight.TT01Rear.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_rs_tt01_text;
             Detachments.detach1TT01 = true;
         }
-        if (defaultRear.activeSelf)
+        if (RearSight.defaultRear.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_rs_default_text;
@@ -146,7 +114,7 @@ public class Cover : UdonSharpBehaviour
     }
     public void attachPDC()
     {
-        if (!tt01.activeSelf && !HGtdiX47.activeSelf && !HGovgp.activeSelf)
+        if (!RearSight.TT01Rear.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             SendCustomEvent("disableAll");
             coverPDC.SetActive(true);
@@ -155,30 +123,30 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_pdc = true;
             SendCustomEvent("check");
         }
-        if (HGovgp.activeSelf)
+        if (Handguard.hg_keymod3.activeSelf)
         {
             error.SetActive(true);
-            errorPartText.text = "CNC Guns OV GP Handguard";
-            panel.SendCustomEvent("detachHGOVGPIsTrue");
+            errorPartText.text = Parts.parts1_hg_keymod3_text;
+            Detachments.detach1OVGP = true;
         }
-        if (HGtdiX47.activeSelf)
+        if (Handguard.hg_quadRail3.activeSelf)
         {
             error.SetActive(true);
-            errorPartText.text = "TDI X47 Tactical Handguard";
-            panel.SendCustomEvent("detachHGTDIX47IsTrue");
+            errorPartText.text = Parts.parts1_hg_quadRail3_text;
+            Detachments.detach1TDX47 = true;
         }
-        if (tt01.activeSelf)
+        if (RearSight.TT01Rear.activeSelf)
         {
             error.SetActive(true);
-            errorPartText.text = "Taktika Tula TT01 Rear Sight Rail";
-            panel.SendCustomEvent("detachRearTT01IsTrue");
+            errorPartText.text = Parts.parts1_rs_tt01_text;
+            Detachments.detach1TT01 = true;
         }
     }
     public void attachB33()
     {
-        if (!tt01.activeSelf)
+        if (!RearSight.TT01Rear.activeSelf)
         {
-            if (HGb10m.activeSelf)
+            if (Handguard.hg_zenit2.activeSelf)
             {
                 SendCustomEvent("disableAll");
                 coverZenit.SetActive(true);
@@ -187,7 +155,7 @@ public class Cover : UdonSharpBehaviour
                 Parts.parts1_cover_b33 = true;
                 SendCustomEvent("check");
             }
-            if (HGb30.activeSelf)
+            if (Handguard.hg_zenit3.activeSelf)
             {
                 SendCustomEvent("disableAll");
                 coverZenit.SetActive(true);
@@ -196,199 +164,199 @@ public class Cover : UdonSharpBehaviour
                 Parts.parts1_cover_b33 = true;
                 SendCustomEvent("check");
             }
-            if (HGrs47.activeSelf)
+            if (Handguard.hg_quadRail3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_quadRail2_text;
                 Detachments.detach1RS47 = true;
             }
-            if (HGdefault.activeSelf)
+            if (Handguard.hg_default.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_default_text;
                 Detachments.detach1DefaultHG = true;
             }
-            if (HGdefaultPoly.activeSelf)
+            if (Handguard.hg_polymer1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_polymer1_text;
                 Detachments.detach1DefaultPoly = true;
             }
-            if (HGdefaultPlum.activeSelf)
+            if (Handguard.hg_polymer2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_polymer2_text;
                 Detachments.detach1DefaultPlum = true;
             }
-            if (HGmoeBlk.activeSelf)
+            if (Handguard.hg_magpulA1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulA1_text;
                 Detachments.detach1MOEBLK = true;
             }
-            if (HGmoeFde.activeSelf)
+            if (Handguard.hg_magpulA2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulA2_text;
                 Detachments.detach1MOEFDE = true;
             }
-            if (HGmoeOd.activeSelf)
+            if (Handguard.hg_magpulA3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulA3_text;
                 Detachments.detach1MOEOD = true;
             }
-            if (HGmoePlum.activeSelf)
+            if (Handguard.hg_magpulA4.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulA4_text;
                 Detachments.detach1MOEPlum = true;
             }
-            if (HGmoeSg.activeSelf)
+            if (Handguard.hg_magpulA5.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulA5_text;
                 Detachments.detach1MOESG = true;
             }
-            if (HGwooden1.activeSelf)
+            if (Handguard.hg_wooden1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_wooden1_text;
                 Detachments.detach1Wooden1 = true;
             }
-            if (HGwooden2.activeSelf)
+            if (Handguard.hg_wooden2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_wooden2_text;
                 Detachments.detach1Wooden2 = true;
             }
-            if (HGwooden3.activeSelf)
+            if (Handguard.hg_wooden3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_wooden3_text;
                 Detachments.detach1Wooden3 = true;
             }
-            if (HGtrax1.activeSelf)
+            if (Handguard.hg_keymod1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_keymod1_text;
                 Detachments.detach1Trax1 = true;
             }
-            if (HGhexagonBlk.activeSelf)
+            if (Handguard.hg_hexagon1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_hexagon1_text;
                 Detachments.detach1HexBlk = true;
             }
-            if (HGhexagonRed.activeSelf)
+            if (Handguard.hg_hexagon2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_hexagon2_text;
                 Detachments.detach1HexRed = true;
             }
-            if (HGcmrd.activeSelf)
+            if (Handguard.hg_keymod2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_keymod2_text;
                 Detachments.detach1Cmrd = true;
             }
-            if (HGb10.activeSelf)
+            if (Handguard.hg_zenit1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_zenit1_text;
                 Detachments.detach1B10 = true;
             }
-            if (HGzhukovBlk.activeSelf)
+            if (Handguard.hg_magpulB1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulB1_text;
                 Detachments.detach1ZhukovBlk = true;
             }
-            if (HGzhukovFde.activeSelf)
+            if (Handguard.hg_magpulB2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulB2_text;
                 Detachments.detach1ZhukovFde = true;
             }
-            if (HGZhukovPlum.activeSelf)
+            if (Handguard.hg_magpulB3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_magpulB3_text;
                 Detachments.detach1ZhukovPlum = true;
             }
-            if (HGak100Poly.activeSelf)
+            if (Handguard.hg_polymerRail.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_polymerRail_text;
                 Detachments.detach1Ak100 = true;
             }
-            if (HGaggressor.activeSelf)
+            if (Handguard.hg_quadRail1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_quadRail1_text;
                 Detachments.detach1Aggressor = true;
             }
-            if (HGakmLBlk.activeSelf)
+            if (Handguard.hg_mlok1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_mlok1_text;
                 Detachments.detach1AkmLBlk = true;
             }
-            if (HGakmLRed.activeSelf)
+            if (Handguard.hg_mlok2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_mlok2_text;
                 Detachments.detach1AkmLRed = true;
             }
-            if (HGakmLBr.activeSelf)
+            if (Handguard.hg_mlok3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_mlok3_text;
                 Detachments.detach1AkmLBr = true;
             }
-            if (HGwasr.activeSelf)
+            if (Handguard.hg_woodenGrip.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_woodenGrip_text;
                 Detachments.detach1Wasr = true;
             }
-            if (HGtdiX47.activeSelf)
+            if (Handguard.hg_quadRail3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_quadRail3_text;
                 Detachments.detach1TDX47 = true;
             }
-            if (HGovgp.activeSelf)
+            if (Handguard.hg_keymod3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_keymod3_text;
                 Detachments.detach1OVGP = true;
             }
-            if (HGUFM.activeSelf)
+            if (Handguard.hg_keymod4.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_keymod4_text;
                 Detachments.detach1UFM = true;
             }
-            if (HGm1b.activeSelf)
+            if (Handguard.hg_gasBlock4.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_gasBlock4_text;
                 Detachments.detach1m1b = true;
             }
-            if (HGtroy.activeSelf)
+            if (Handguard.hg_gasBlock1.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_gasBlock1_text;
                 Detachments.detach1Troy = true;
             }
-            if (HGVSCombo.activeSelf)
+            if (Handguard.hg_gasBlock2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_gasBlock2_text;
                 Detachments.detach1VSCombo = true;
             }
-            if (HGVSComboW.activeSelf)
+            if (Handguard.hg_gasBlock3.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_gasBlock3_text;
@@ -398,7 +366,7 @@ public class Cover : UdonSharpBehaviour
     }
     public void attachDogLeg()
     {
-        if (!tt01.activeSelf && !defaultRear.activeSelf && !HGtdiX47.activeSelf && !HGovgp.activeSelf)
+        if (!RearSight.TT01Rear.activeSelf && !RearSight.defaultRear.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             SendCustomEvent("disableAll");
             coverDogLeg.SetActive(true);
@@ -407,25 +375,25 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_dogLeg = true;
             SendCustomEvent("check");
         }
-        if (HGovgp.activeSelf)
+        if (Handguard.hg_keymod3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_keymod3_text;
             Detachments.detach1OVGP = true;
         }
-        if (HGtdiX47.activeSelf)
+        if (Handguard.hg_quadRail3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_quadRail3_text;
             Detachments.detach1TDX47 = true;
         }
-        if (defaultRear.activeSelf)
+        if (RearSight.defaultRear.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_rs_default_text;
             Detachments.detach1Default = true;
         }
-        if (tt01.activeSelf)
+        if (RearSight.TT01Rear.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_rs_tt01_text;

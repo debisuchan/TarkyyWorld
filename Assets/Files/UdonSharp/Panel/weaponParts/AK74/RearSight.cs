@@ -8,19 +8,14 @@ public class RearSight : UdonSharpBehaviour
     public Parts Parts;
     public Settings Settings;
     public Detachments Detachments;
+    public Cover Cover;
+    public Handguard Handguard;
 
     public int language = 0;
 
     public GameObject TT01Rear;
     public GameObject defaultRear;
-    public GameObject handguardX47;
-    public GameObject handguardOVGP;
-    public GameObject coverPDC;
-    public GameObject coverB33;
-    public GameObject coverDogLeg;
-    public GameObject coverBastion;
     public GameObject error;
-
     public UnityEngine.UI.Text errorPartText;
 
     public UdonBehaviour panel;
@@ -29,7 +24,7 @@ public class RearSight : UdonSharpBehaviour
 
     public void attachDefaultRear()
     {
-        if (!coverPDC.activeSelf && !coverB33.activeSelf && !coverBastion.activeSelf)
+        if (!Cover.coverPDC.activeSelf && !Cover.coverZenit.activeSelf && !Cover.coverBastion.activeSelf)
         {
             TT01Rear.SetActive(false);
             defaultRear.SetActive(true);
@@ -38,19 +33,19 @@ public class RearSight : UdonSharpBehaviour
             Parts.parts1_rs_default = true;
             SendCustomEvent("check");
         }
-        if (coverBastion.activeSelf)
+        if (Cover.coverBastion.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_bastion_text;
             Detachments.detach1Bastion = true;
         }
-        if (coverB33.activeSelf)
+        if (Cover.coverZenit.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_b33_text;
             Detachments.detach1B33 = true;
         }
-        if (coverPDC.activeSelf)
+        if (Cover.coverPDC.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_pdc_text;
@@ -59,7 +54,7 @@ public class RearSight : UdonSharpBehaviour
     }
     public void attachTT01Rear()
     {
-        if (!coverB33.activeSelf && !coverDogLeg.activeSelf && !coverBastion.activeSelf && !coverPDC.activeSelf && !handguardX47.activeSelf && !handguardOVGP.activeSelf)
+        if (!Cover.coverZenit.activeSelf && !Cover.coverDogLeg.activeSelf && !Cover.coverBastion.activeSelf && !Cover.coverPDC.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             defaultRear.SetActive(false);
             TT01Rear.SetActive(true);
@@ -68,31 +63,31 @@ public class RearSight : UdonSharpBehaviour
             Parts.parts1_rs_tt01 = true;
             SendCustomEvent("check");
         }
-        if (handguardOVGP.activeSelf)
+        if (Handguard.hg_keymod3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_keymod3_text;
             Detachments.detach1OVGP = true;
         }
-        if (handguardX47.activeSelf)
+        if (Handguard.hg_quadRail3.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_hg_quadRail3_text;
             Detachments.detach1TDX47 = true;
         }
-        if (coverPDC.activeSelf)
+        if (Cover.coverPDC.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_pdc_text;
             Detachments.detach1PDC = true;
         }
-        if (coverBastion.activeSelf)
+        if (Cover.coverBastion.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_bastion_text;
             Detachments.detach1Bastion = true;
         }
-        if (coverDogLeg.activeSelf)
+        if (Cover.coverDogLeg.activeSelf)
         {
             error.SetActive(true);
             errorPartText.text = Parts.parts1_cover_dogLeg_text;
