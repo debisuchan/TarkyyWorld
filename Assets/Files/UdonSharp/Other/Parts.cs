@@ -308,7 +308,7 @@ public class Parts : UdonSharpBehaviour
         parts1_cover_pdc_text = "FAB PDC 탑커버";
 
         parts1_rs_default_text = "AK-74 기본 가늠자";
-        parts1_rs_tt01_text = "TT01 레일형 가늠좌";
+        parts1_rs_tt01_text = "TT01 레일형 가늠자";
     }
     public void reset1_hg()
     {
@@ -347,11 +347,13 @@ public class Parts : UdonSharpBehaviour
         parts1_hg_gasBlock2 = false;
         parts1_hg_gasBlock3 = false;
         parts1_hg_gasBlock4 = false;
+        Debug.Log("Weapon 1 Handguards Reset");
     }
     public void reset1_rs()
     {
         parts1_rs_default = false;
         parts1_rs_tt01 = false;
+        Debug.Log("Weapon 1 Rear Sight Reset");
     }
 
     public void reset1_cover()
@@ -361,12 +363,16 @@ public class Parts : UdonSharpBehaviour
         parts1_cover_pdc = false;
         parts1_cover_bastion = false;
         parts1_cover_dogLeg = false;
+        Debug.Log("Weapon 1 Cover Reset");
     }
 
 
 
     public void checkParts()
     {
+        SendCustomEvent("reset1_rs");
+        SendCustomEvent("reset1_hg");
+        SendCustomEvent("reset1_cover");
         SendCustomEvent("check1Handguards");
         SendCustomEvent("check1RearSights");
         SendCustomEvent("check1Covers");
@@ -571,13 +577,15 @@ public class Parts : UdonSharpBehaviour
     }
     public void check1RearSights()
     {
-        if (w1rs_default)
+        if (parts1_rs_default)
         {
             w1rs_default.SetActive(true);
+            w1rs_tt01.SetActive(false);
         }
-        if (w1rs_tt01)
+        if (parts1_rs_default)
         {
             w1rs_tt01.SetActive(true);
+            w1rs_default.SetActive(false);
         }
     }
 }

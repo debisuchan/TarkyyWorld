@@ -67,8 +67,7 @@ public class Panel : UdonSharpBehaviour
 
     //設定パネル変数
     public bool modderOnlyMode = true;
-    [UdonSynced]
-    public string modderName = "";
+    [UdonSynced] public string modderName = "";
     public UnityEngine.UI.Text modderName_text;
     public GameObject LOCKED;
 
@@ -85,7 +84,7 @@ public class Panel : UdonSharpBehaviour
 
         api = Networking.LocalPlayer;
 
-        if (api.displayName == modderName || api.displayName == modderName_text.text)
+        if (api.displayName == modderName)
         {
 
             langList.SetActive(false);
@@ -96,7 +95,7 @@ public class Panel : UdonSharpBehaviour
 
         }
 
-        if (modderName_text.text == "" || modderName == "")
+        if (modderName == null || modderName == "")
         {
 
             langList.SetActive(false);
@@ -106,13 +105,12 @@ public class Panel : UdonSharpBehaviour
             panelDefault.SetActive(true);
 
             modderName = api.displayName;
-            modderName_text.text = api.displayName;
 
             Debug.Log("The modder is now " + modderName + ".");
 
         }
 
-        if (api.displayName != modderName || api.displayName != modderName_text.text)
+        if (api.displayName != modderName)
         {
             langList.SetActive(false);
             weapon1.SetActive(true);
@@ -229,8 +227,8 @@ public class Panel : UdonSharpBehaviour
         }
         if (language == 2)
         {
-            infoOne.text = "총기 조립 월드에 오신것을 환영합니다!";
-            infoTwo.text = "이 월드에서는 여러 총기를 가지고 발사하거나 자신만의 총을 조립하며 즐길 수 있는 월드 입니다\n\n해당 월드는 제작자 전용으로 만들어진 월드로서 하단의 주의점을 반드시 숙지하여 주시기 바랍니다.\n\n해당 모델은 문제가 발생할 수 있기에 인스턴스를 반드시 Friends Only으로 설정하여 즐겨주시길 바랍니다!\n월드에 대해 문제가 발생하였을 때에는 Private 월드로 전환할 것 이므로\n즐기고 싶으신분 께서는 제작자에게 연락 부탁 드립니다!\n\n이상입니다. 이제 아래의 '이해했습니다!' 버튼을 눌러 즐겨주시길 바랍니다!";
+            infoOne.text = "총기 조립 월드에 오신 것을 환영합니다!";
+            infoTwo.text = "이 월드에서는 여러 총기를 가지고 발사하거나 자신만의 총을 조립하며 즐길 수 있는 월드입니다\n\n해당 월드는 제작자 전용으로 만들어진 월드로서 하단의 주의점을 반드시 숙지하여 주시기 바랍니다.\n\n해당 모델은 문제가 발생할 수 있기에 인스턴스를 반드시 Friends Only으로 설정하여 즐겨주시길 바랍니다!\n월드에 대해 문제가 발생하였을 때에는 Private 월드로 전환할 것이므로\n즐기고 싶으신 분께서는 제작자에게 연락 부탁드립니다!\n\n이상입니다. 이제 아래의 '이해했습니다!' 버튼을 눌러 즐겨주시길 바랍니다!";
             okText.text = "이해했습니다!";
             panelTitle1.text = "조립 패널";
             panelTitle2.text = "조립 패널";
@@ -250,7 +248,7 @@ public class Panel : UdonSharpBehaviour
             panelParts5.text = "탄창";
             panelParts6.text = "스코프";
             panelParts7.text = "레일";
-            panelParts8.text = "가늠좌";
+            panelParts8.text = "가늠자";
             panelParts9.text = "핸드그립";
             panelParts10.text = "피스톨그립";
             panelPartsError1.text = "알림";
@@ -262,7 +260,7 @@ public class Panel : UdonSharpBehaviour
             defaultText = "기본";
             topCover = "탑커버";
             rearDefault.text = "기본";
-            textRearSight = "가늠좌";
+            textRearSight = "가늠자";
         }
     }
 

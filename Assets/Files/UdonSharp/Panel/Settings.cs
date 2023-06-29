@@ -6,6 +6,7 @@ using VRC.Udon;
 
 public class Settings : UdonSharpBehaviour
 {
+    public AK74 Weapon1;
     public Cover Cover;
     public World World;
     public RearSight RearSight;
@@ -14,10 +15,12 @@ public class Settings : UdonSharpBehaviour
     public Parts Parts;
 
     public VRCPlayerApi playerApi;
+
     public UdonBehaviour panel;
     public UdonBehaviour cover;
     public UdonBehaviour world;
     public UdonBehaviour parts;
+    public UdonBehaviour weapon1;
 
 
     public UnityEngine.UI.Text playerName_text;
@@ -72,12 +75,14 @@ public class Settings : UdonSharpBehaviour
 
     public void langJP()
     {
+        Weapon1.language = 0;
         Panel.language = 0;
         Cover.language = 0;
         World.language = 0;
         Parts.language = 0;
         Handguard.language = 0;
         RearSight.language = 0;
+        weapon1.SendCustomEventDelayedSeconds("checkLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         panel.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         cover.SendCustomEventDelayedSeconds("setLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         //world.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
@@ -86,12 +91,14 @@ public class Settings : UdonSharpBehaviour
     }
     public void langEN()
     {
+        Weapon1.language = 1;
         Panel.language = 1;
         Cover.language = 1;
         World.language = 1;
         Parts.language = 1;
         Handguard.language = 1;
         RearSight.language = 1;
+        weapon1.SendCustomEventDelayedSeconds("checkLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         panel.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         cover.SendCustomEventDelayedSeconds("setLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         //world.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
@@ -99,12 +106,14 @@ public class Settings : UdonSharpBehaviour
     }
     public void langKR()
     {
+        Weapon1.language = 2;
         Panel.language = 2;
         Cover.language = 2;
         World.language = 2;
         Parts.language = 2;
         Handguard.language = 2;
         RearSight.language = 2;
+        weapon1.SendCustomEventDelayedSeconds("checkLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         panel.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         cover.SendCustomEventDelayedSeconds("setLang", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         //world.SendCustomEventDelayedSeconds("check", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);

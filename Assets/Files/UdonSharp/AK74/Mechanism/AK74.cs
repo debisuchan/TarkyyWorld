@@ -8,6 +8,7 @@ public class AK74 : UdonSharpBehaviour
 
     public Settings Settings;
     public Parts Parts;
+    public UdonBehaviour panel;
 
     public int language = 0;
     public string cantWork = "";
@@ -16,6 +17,7 @@ public class AK74 : UdonSharpBehaviour
     public string ammoIsLow = "";
     public string stopWorkingLowAmmo = "";
     public string notLoaded = "";
+    public string autoReloading = "";
 
     private VRCPlayerApi api;
     public VRC.SDK3.Components.VRCPickup weapon;
@@ -38,9 +40,24 @@ public class AK74 : UdonSharpBehaviour
 
     void Start()
     {
-        Parts.SendCustomEventDelayedSeconds("checkParts", 1.0f, VRC.Udon.Common.Enums.EventTiming.Update);
+        Parts.SendCustomEventDelayedSeconds("checkParts", 1.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
 
+    public void checkLang()
+    {
+        if (language == 0)
+        {
+            SendCustomEvent("langJP");
+        }
+        if (language == 1)
+        {
+            SendCustomEvent("langEN");
+        }
+        if (language == 2)
+        {
+            SendCustomEvent("langKR");
+        }
+    }
     public void langJP()
     {
 
@@ -50,6 +67,7 @@ public class AK74 : UdonSharpBehaviour
         checkSafety = "セーフティをもう一度確認して下さい。";
         noOneHold = "誰も持っていません。";
         cantWork = "作動に問題が発生しました。銃器の状態をもう一度確認して下さい。";
+        autoReloading = "弾薬が足りない為、自動的にリロードします。";
 
     }
     public void langEN()
@@ -60,6 +78,7 @@ public class AK74 : UdonSharpBehaviour
         checkSafety = "Please check the safety.";
         noOneHold = "No one is holding.";
         cantWork = "Weapon can't work. Please check the weapon status.";
+        autoReloading = "Magazine is empty, So it will reload automatically";
 
     }
     public void langKR()
@@ -67,13 +86,12 @@ public class AK74 : UdonSharpBehaviour
 
         stopWorkingLowAmmo = "탄약이 부족하므로 작동을 멈추었습니다.";
         ammoIsLow = "탄약이 없으므로 재장전이 필요합니다.";
-        checkSafety = "조정간을 확인해주세요.";
-        noOneHold = "아무도 들고있지 않습니다.";
-        cantWork = "무기 작동에 실패하였습니다. 무기 상태를 점검해주세요.";
+        checkSafety = "조종간을 확인해 주세요.";
+        noOneHold = "아무도 들고 있지 않습니다.";
+        cantWork = "무기 작동에 실패하였습니다. 무기 상태를 점검해 주세요.";
+        autoReloading = "탄약이 없으므로 자동으로 재장전 됩니다.";
 
     }
-
-    public UdonBehaviour panel;
     public override void OnPickup()
     {
         SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "pickedUp");

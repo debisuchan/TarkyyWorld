@@ -838,17 +838,4 @@ public class Handguard : UdonSharpBehaviour
             Parts.SendCustomEventDelayedSeconds("checkParts", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         }
     }
-
-
-    public void check()
-    {
-        Settings.playerApi = Networking.LocalPlayer;
-        string checkedPlayer = Settings.playerApi.displayName;
-        if (Settings.playerName == checkedPlayer)
-        { }
-        else
-        {
-            Parts.SendCustomEventDelayedSeconds("checkParts", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
-        }
-    }
 }

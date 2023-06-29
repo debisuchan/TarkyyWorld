@@ -6,7 +6,9 @@ using VRC.Udon;
 
 public class Detachments : UdonSharpBehaviour
 {
+    VRCPlayerApi playerApi;
 
+    public Settings Settings;
     public Cover Cover;
     public RearSight RearSight;
     public Handguard Handguard;
@@ -62,192 +64,296 @@ public class Detachments : UdonSharpBehaviour
     //  エラー画面のためにコードされたメソッド
     public void errorYes()
     {
+        //WEAPON 1 REAR SIGHT
         if (detach1Default == true)
         {
-            Cover.SendCustomEvent("detachRearDefault");
+            RearSight.defaultRear.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_default = false;
+            RearSight.SendCustomEvent("check");
         }
         if (detach1TT01 == true)
         {
-            Cover.SendCustomEvent("detachRearTT01");
+            RearSight.TT01Rear.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
             Parts.parts1_rs_tt01 = false;
+            RearSight.SendCustomEvent("check");
         }
+        //WEAPON 1 HANDGUARDS
         if (detach1OVGP == true)
         {
-            Cover.SendCustomEvent("detachOVGP");
+            Handguard.hg_keymod3.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_keymod3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1RS47 == true)
         {
-            Cover.SendCustomEvent("detachRS47");
+            Handguard.hg_quadRail2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_quadRail2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1DefaultHG == true)
         {
-            Cover.SendCustomEvent("detachDefaultHG");
+            Handguard.hg_default.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_default = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1DefaultPoly == true)
         {
-            Cover.SendCustomEvent("detachDefaultPoly");
+            Handguard.hg_polymer1.SetActive(false);
+            Handguard.hg_polymerBase.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_polymer1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1DefaultPlum == true)
         {
-            Cover.SendCustomEvent("detachDefaultPlum");
+            Handguard.hg_polymer2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_polymer2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1MOEBLK == true)
         {
-            Cover.SendCustomEvent("detachMOEBLK");
+            Handguard.hg_magpulA1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulA1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1MOEFDE == true)
         {
-            Cover.SendCustomEvent("detachMOEFDE");
+            Handguard.hg_magpulA2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulA2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1MOEOD == true)
         {
-            Cover.SendCustomEvent("detachMOEOD");
+            Handguard.hg_magpulA3.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulA3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1MOEPlum == true)
         {
-            Cover.SendCustomEvent("detachMOEPlum");
+            Handguard.hg_magpulA4.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulA4 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1MOESG == true)
         {
-            Cover.SendCustomEvent("detachMOESG");
+            Handguard.hg_magpulA5.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulA5 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Wooden1 == true)
         {
-            Cover.SendCustomEvent("detachWooden1");
+            Handguard.hg_wooden1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_wooden1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Wooden2 == true)
         {
-            Cover.SendCustomEvent("detachWooden2");
+            Handguard.hg_wooden2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_wooden2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Wooden3 == true)
         {
-            Cover.SendCustomEvent("detachWooden3");
+            Handguard.hg_wooden3.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_wooden3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Trax1 == true)
         {
-            Cover.SendCustomEvent("detachTrax1");
+            Handguard.hg_keymod1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_keymod1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1HexBlk == true)
         {
-            Cover.SendCustomEvent("detachHexBlk");
+            Handguard.hg_hexagon1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_hexagon1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1HexRed == true)
         {
-            Cover.SendCustomEvent("detachHexRed");
+            Handguard.hg_hexagon2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_hexagon2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Cmrd == true)
         {
-            Cover.SendCustomEvent("detachCmrd");
+            Handguard.hg_keymod2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_keymod2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1B10 == true)
         {
-            Cover.SendCustomEvent("detachB10");
+            Handguard.hg_zenit1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_zenit1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1ZhukovBlk == true)
         {
-            Cover.SendCustomEvent("detachZhukovBlk");
+            Handguard.hg_magpulB1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulB1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1ZhukovFde == true)
         {
-            Cover.SendCustomEvent("detachZhukovFde");
+            Handguard.hg_magpulB2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulB2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1ZhukovPlum == true)
         {
-            Cover.SendCustomEvent("detachZhukovPlum");
+            Handguard.hg_magpulB3.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_magpulB3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Ak100 == true)
         {
-            Cover.SendCustomEvent("detachAk100");
+            Handguard.hg_polymerRail.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_polymerRail = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Aggressor == true)
         {
-            Cover.SendCustomEvent("detachAggressor");
+            Handguard.hg_quadRail1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_polymerRail = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1AkmLBlk == true)
         {
-            Cover.SendCustomEvent("detachAkmLBlk");
+            Handguard.hg_mlok1.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_mlok1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1AkmLRed == true)
         {
-            Cover.SendCustomEvent("detachAkmLRed");
+            Handguard.hg_mlok2.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_mlok2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1AkmLBr == true)
         {
-            Cover.SendCustomEvent("detachAkmLBr");
+            Handguard.hg_mlok3.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_mlok3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Wasr == true)
         {
-            Cover.SendCustomEvent("detachWasr");
+            Handguard.hg_woodenGrip.SetActive(false);
+            Handguard.gb_default.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_woodenGrip = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1UFM == true)
         {
-            Cover.SendCustomEvent("detachUFM");
+            Handguard.hg_keymod4.SetActive(false);
+            Handguard.gb_vdm.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_keymod4 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1m1b == true)
         {
-            Cover.SendCustomEvent("detachm1b");
+            Handguard.hg_gasBlock4.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_gasBlock4 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Troy == true)
         {
-            Cover.SendCustomEvent("detachTroy");
+            Handguard.hg_gasBlock1.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_gasBlock1 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1VSCombo == true)
         {
-            Cover.SendCustomEvent("detachVSCombo");
+            Handguard.hg_gasBlock2.SetActive(false);
+            Handguard.hg_vsGasBlock.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_gasBlock2 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1VSComboW == true)
         {
-            Cover.SendCustomEvent("detachVSComboW");
+            Handguard.hg_gasBlock3.SetActive(false);
+            Handguard.hg_vsGasBlock.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_hg_gasBlock3 = false;
+            Handguard.SendCustomEvent("check");
         }
         if (detach1Bastion == true)
         {
             RearSight.SendCustomEvent("detachBastion");
             SendCustomEvent("allDetachIsFalse");
+            RearSight.SendCustomEvent("check");
         }
         if (detach1B33 == true)
         {
-            RearSight.SendCustomEvent("detachB33");
+            RearSight.defaultRear.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_rs_default = false;
+            RearSight.SendCustomEvent("check");
         }
         if (detach1PDC == true)
         {
-            RearSight.SendCustomEvent("detachPDC");
+            RearSight.TT01Rear.SetActive(false);
             SendCustomEvent("allDetachIsFalse");
+            Parts.parts1_rs_tt01 = false;
+            RearSight.SendCustomEvent("check");
         }
     }
     public void allDetachIsFalse()
@@ -273,7 +379,7 @@ public class Detachments : UdonSharpBehaviour
         detach1HexRed = false;
         detach1Cmrd = false;
         detach1B10 = false;
-        detach1ZhukovBlk = false;
+        detach1ZhukovBlk = false;   
         detach1ZhukovFde = false;
         detach1ZhukovPlum = false;
         detach1Ak100 = false;

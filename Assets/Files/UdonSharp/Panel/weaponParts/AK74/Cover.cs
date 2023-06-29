@@ -96,7 +96,7 @@ public class Cover : UdonSharpBehaviour
         {
             topCover = "탑커버";
             defaultText = "기본";
-            l_rearSight = "가늠좌";
+            l_rearSight = "가늠자";
             handGuard = "핸드가드";
         }
     }
