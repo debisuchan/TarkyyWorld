@@ -14,6 +14,7 @@ public class Cover : UdonSharpBehaviour
     public Settings Settings;
     public Handguard Handguard;
     public RearSight RearSight;
+    public PanelColor PanelColor;
 
     public int language = 0;
 
@@ -71,13 +72,17 @@ public class Cover : UdonSharpBehaviour
     //ここまで　言語設定
     public void attachDefault()
     {
+        Parts.checkLang();
         SendCustomEvent("disableAll");
         coverDefault.SetActive(true);
 
         Parts.parts1_cover_default = true;
+
+        PanelColor.SendCustomEvent("third");
     }
     public void attachBastion()
     {
+        Parts.checkLang();
         if (!RearSight.defaultRear.activeSelf && !RearSight.TT01Rear.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             SendCustomEvent("disableAll");
@@ -86,6 +91,8 @@ public class Cover : UdonSharpBehaviour
             Parts.reset1_cover();
             Parts.parts1_cover_bastion = true;
             SendCustomEvent("check");
+
+            PanelColor.SendCustomEvent("third");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {
@@ -122,6 +129,8 @@ public class Cover : UdonSharpBehaviour
             Parts.reset1_cover();
             Parts.parts1_cover_pdc = true;
             SendCustomEvent("check");
+
+            PanelColor.SendCustomEvent("third");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {
@@ -144,9 +153,45 @@ public class Cover : UdonSharpBehaviour
     }
     public void attachB33()
     {
+        Parts.checkLang();
         if (!RearSight.TT01Rear.activeSelf)
         {
-            if (Handguard.hg_zenit2.activeSelf)
+            if (Handguard.hg_zenit2.activeSelf 
+            || Handguard.hg_zenit3.activeSelf 
+            || !Handguard.hg_quadRail3.activeSelf 
+            && !Handguard.hg_default.activeSelf
+            && !Handguard.hg_polymer1.activeSelf 
+            && !Handguard.hg_polymer2.activeSelf 
+            && !Handguard.hg_magpulA1.activeSelf 
+            && !Handguard.hg_magpulA2.activeSelf 
+            && !Handguard.hg_magpulA3.activeSelf 
+            && !Handguard.hg_magpulA4.activeSelf 
+            && !Handguard.hg_magpulA5.activeSelf 
+            && !Handguard.hg_wooden1.activeSelf 
+            && !Handguard.hg_wooden2.activeSelf 
+            && !Handguard.hg_wooden3.activeSelf 
+            && !Handguard.hg_keymod1.activeSelf 
+            && !Handguard.hg_keymod2.activeSelf 
+            && !Handguard.hg_keymod3.activeSelf 
+            && !Handguard.hg_hexagon1.activeSelf 
+            && !Handguard.hg_hexagon2.activeSelf 
+            && !Handguard.hg_keymod1.activeSelf 
+            && !Handguard.hg_zenit1.activeSelf 
+            && !Handguard.hg_magpulB1.activeSelf 
+            && !Handguard.hg_magpulB2.activeSelf 
+            && !Handguard.hg_magpulB3.activeSelf 
+            && !Handguard.hg_polymerRail.activeSelf 
+            && !Handguard.hg_quadRail1.activeSelf 
+            && !Handguard.hg_quadRail2.activeSelf 
+            && !Handguard.hg_quadRail3.activeSelf 
+            && !Handguard.hg_mlok1.activeSelf 
+            && !Handguard.hg_mlok2.activeSelf 
+            && !Handguard.hg_mlok3.activeSelf 
+            && !Handguard.hg_woodenGrip.activeSelf 
+            && !Handguard.hg_gasBlock1.activeSelf 
+            && !Handguard.hg_gasBlock2.activeSelf 
+            && !Handguard.hg_gasBlock3.activeSelf 
+            && !Handguard.hg_gasBlock4.activeSelf)
             {
                 SendCustomEvent("disableAll");
                 coverZenit.SetActive(true);
@@ -154,17 +199,10 @@ public class Cover : UdonSharpBehaviour
                 Parts.reset1_cover();
                 Parts.parts1_cover_b33 = true;
                 SendCustomEvent("check");
-            }
-            if (Handguard.hg_zenit3.activeSelf)
-            {
-                SendCustomEvent("disableAll");
-                coverZenit.SetActive(true);
 
-                Parts.reset1_cover();
-                Parts.parts1_cover_b33 = true;
-                SendCustomEvent("check");
+                PanelColor.SendCustomEvent("third");
             }
-            if (Handguard.hg_quadRail3.activeSelf)
+            if (Handguard.hg_quadRail2.activeSelf)
             {
                 error.SetActive(true);
                 errorPartText.text = Parts.parts1_hg_quadRail2_text;
@@ -366,6 +404,7 @@ public class Cover : UdonSharpBehaviour
     }
     public void attachDogLeg()
     {
+        Parts.checkLang();
         if (!RearSight.TT01Rear.activeSelf && !RearSight.defaultRear.activeSelf && !Handguard.hg_quadRail3.activeSelf && !Handguard.hg_keymod3.activeSelf)
         {
             SendCustomEvent("disableAll");
@@ -374,6 +413,8 @@ public class Cover : UdonSharpBehaviour
             Parts.reset1_cover();
             Parts.parts1_cover_dogLeg = true;
             SendCustomEvent("check");
+
+            PanelColor.SendCustomEvent("third");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {
@@ -392,6 +433,8 @@ public class Cover : UdonSharpBehaviour
             error.SetActive(true);
             errorPartText.text = Parts.parts1_rs_default_text;
             Detachments.detach1Default = true;
+
+            Debug.Log(Parts.parts1_rs_default_text + " is a name of error object.");
         }
         if (RearSight.TT01Rear.activeSelf)
         {

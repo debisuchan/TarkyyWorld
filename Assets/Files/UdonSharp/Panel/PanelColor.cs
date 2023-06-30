@@ -59,6 +59,10 @@ public class PanelColor : UdonSharpBehaviour
     //ハンドガード
     public void check()
     {
+        Reset1();
+        Reset2();
+        Reset3();
+
         SendCustomEventDelayedSeconds("first", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         SendCustomEventDelayedSeconds("second", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         SendCustomEventDelayedSeconds("third", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
