@@ -6,6 +6,8 @@ using VRC.Udon;
 
 public class Panel : UdonSharpBehaviour
 {
+
+    public Page Page;
     public Settings Settings;
 
     private VRCPlayerApi api;
@@ -71,12 +73,12 @@ public class Panel : UdonSharpBehaviour
     public UnityEngine.UI.Text modderName_text;
     public GameObject LOCKED;
 
-    public GameObject pageCover;
-    public GameObject pageHandguard;
-    public GameObject pageMainParts;
-    public GameObject pageDetailButtons;
+    //public GameObject pageCover;
+    //public GameObject pageHandguard;
+    //public GameObject pageMainParts;
+    //public GameObject pageDetailButtons;
     public GameObject pageCanvas;
-    public UdonBehaviour pageUpdate;
+    //public UdonBehaviour pageUpdate;
     public UdonBehaviour pagePage;
 
     public void udstd()
@@ -345,19 +347,19 @@ public class Panel : UdonSharpBehaviour
 
     public void toCoverPage()
     {
-        pageDetailButtons.SetActive(true);
-        pageCover.SetActive(true);
-        pageMainParts.SetActive(false);
+        Page.DetailButtonsW1.SetActive(true);
+        Page.coverW1.SetActive(true);
+        Page.MainButtonsW1.SetActive(false);
 
-        pagePage.SendCustomEventDelayedSeconds("update", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
+        //pagePage.SendCustomEventDelayedSeconds("uptodate", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
 
     public void toHandguardPage()
     {
-        pageDetailButtons.SetActive(true);
-        pageHandguard.SetActive(true);
-        pageMainParts.SetActive(false);
+        Page.DetailButtonsW1.SetActive(true);
+        Page.handguardW1.SetActive(true);
+        Page.MainButtonsW1.SetActive(false);
 
-        pagePage.SendCustomEventDelayedSeconds("update", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
+        //pagePage.SendCustomEventDelayedSeconds("uptodate", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
 }
