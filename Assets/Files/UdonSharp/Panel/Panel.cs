@@ -8,9 +8,11 @@ public class Panel : UdonSharpBehaviour
 {
 
     public Page Page;
+    public Parts Parts;
     public Settings Settings;
 
     private VRCPlayerApi api;
+
     public int language = 0;
 
     public GameObject weaponSelection;
@@ -154,8 +156,8 @@ public class Panel : UdonSharpBehaviour
             infoTwo.text = "このワールドは色んな銃器で打ったり自分だけの銃を組み立てしながらあそべるワールドです。\n\n本ワールドは作者向けで作られたワールドですので下記の注意点を必ず認識してください。\n\n本モデルは問題性が多いですのでインスタンスを必ずFriends Onlyで設定してお楽しみ下さい！\nワールドについて問題が発生したときはPrivateワールドに切り替えしますので\nお楽しみしたい方は作者にご連絡下さい！\n現在、VRだけ対応していただきます。ご了承下さい。\n\n以上です。あとは下の「理解した！」ボタンを押してお楽しみ下さい！";
             okText.text = "理解した ！";
             //メインパネル
-            panelTitle1.text = "組み立てパンネル";
-            panelTitle2.text = "組み立てパンネル";
+            panelTitle1.text = "組み立てパネル";
+            panelTitle2.text = "組み立てパネル";
             panelBtn1.text = "武器選択";
             panelBtn2.text = "部品";
             panelBtn3.text = "位置";
@@ -185,10 +187,10 @@ public class Panel : UdonSharpBehaviour
             panelPartsErrorBTN1.text = "いいえ";
             panelPartsErrorBTN2.text = "はい";
             //その外
-            coverDefault.text = "基本";
-            defaultText = "基本";
+            //coverDefault.text = "基本";
+            //defaultText = "基本";
             topCover = "トップカバー";
-            rearDefault.text = "基本";
+            //rearDefault.text = "基本";
             textRearSight = "リアサイト";
         }
         if (language == 1)
@@ -222,10 +224,10 @@ public class Panel : UdonSharpBehaviour
             panelPartsError3.text = "Remove this part?";
             panelPartsErrorBTN1.text = "No";
             panelPartsErrorBTN2.text = "Yes";
-            coverDefault.text = "Default";
-            defaultText = "Default";
+           // coverDefault.text = "Default";
+            //defaultText = "Default";
             topCover = "Dust Cover";
-            rearDefault.text = "Default";
+            //rearDefault.text = "Default";
         }
         if (language == 2)
         {
@@ -258,12 +260,13 @@ public class Panel : UdonSharpBehaviour
             panelPartsError3.text = "이 부품을 제거하시겠습니까?";
             panelPartsErrorBTN1.text = "아니오";
             panelPartsErrorBTN2.text = "예";
-            coverDefault.text = "기본";
-            defaultText = "기본";
+            //coverDefault.text = "기본";
+            //defaultText = "기본";
             topCover = "탑커버";
-            rearDefault.text = "기본";
+            //rearDefault.text = "기본";
             textRearSight = "가늠자";
         }
+    Parts.SendCustomEvent("checkLang");
     }
 
     public void languageMenu()
@@ -347,19 +350,17 @@ public class Panel : UdonSharpBehaviour
 
     public void toCoverPage()
     {
+        Parts.SendCustomEvent("checkLang");
         Page.DetailButtonsW1.SetActive(true);
         Page.coverW1.SetActive(true);
         Page.MainButtonsW1.SetActive(false);
-
-        //pagePage.SendCustomEventDelayedSeconds("uptodate", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
 
     public void toHandguardPage()
     {
+        Parts.SendCustomEvent("checkLang");
         Page.DetailButtonsW1.SetActive(true);
         Page.handguardW1.SetActive(true);
         Page.MainButtonsW1.SetActive(false);
-
-        //pagePage.SendCustomEventDelayedSeconds("uptodate", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
 }

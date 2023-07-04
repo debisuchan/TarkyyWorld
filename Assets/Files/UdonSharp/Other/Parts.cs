@@ -6,6 +6,8 @@ using VRC.Udon;
 
 public class Parts : UdonSharpBehaviour
 {
+    public Localization Localization;
+
     public int language = 0;
 
     //変数
@@ -215,6 +217,8 @@ public class Parts : UdonSharpBehaviour
 
         parts1_rs_default_text = "AK基本リアサイト";
         parts1_rs_tt01_text = "AK用レイル付きリアサイト";
+
+        Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
     public void langEN()
     {
@@ -262,6 +266,8 @@ public class Parts : UdonSharpBehaviour
 
         parts1_rs_default_text = "AK-74 Default Rear Sight";
         parts1_rs_tt01_text = "Taktika Tula TT01 Rear Sight Rail";
+
+        Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
     public void langKR()
     {
@@ -309,6 +315,8 @@ public class Parts : UdonSharpBehaviour
 
         parts1_rs_default_text = "AK-74 기본 가늠자";
         parts1_rs_tt01_text = "TT01 레일형 가늠자";
+
+        Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
     public void reset1_hg()
     {
