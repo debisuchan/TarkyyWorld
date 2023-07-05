@@ -302,7 +302,7 @@ public class PanelColor : UdonSharpBehaviour
             img_hgWooden1.color = new Color32(255, 150, 150, 255);
             img_hgWooden2.color = new Color32(255, 150, 150, 255);
             img_hgWooden3.color = new Color32(255, 150, 150, 255);
-            img_hgWoodenGrip.color = new Color32(255, 150, 255, 255);
+            img_hgWoodenGrip.color = new Color32(255, 150, 150, 255);
             img_hgPolymer1.color = new Color32(255, 150, 150, 255);
             img_hgPolymer2.color = new Color32(255, 150, 150, 255);
             img_hgPolymerRail.color = new Color32(255, 150, 150, 255);
