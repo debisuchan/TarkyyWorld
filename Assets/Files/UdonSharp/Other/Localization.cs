@@ -59,6 +59,22 @@ public class Localization : UdonSharpBehaviour
     public UnityEngine.UI.Text parts1_rs_default;
     public UnityEngine.UI.Text parts1_rs_tt01;
 
+    //マズル１
+    public UnityEngine.UI.Text parts1_muzzle_default1;
+    public UnityEngine.UI.Text parts1_muzzle_default2;
+    public UnityEngine.UI.Text parts1_muzzle_default3;
+    public UnityEngine.UI.Text parts1_muzzle_default4;
+    public UnityEngine.UI.Text parts1_muzzle_cqb74;
+    public UnityEngine.UI.Text parts1_muzzle_rrd;
+    public UnityEngine.UI.Text parts1_muzzle_srvv;
+    public UnityEngine.UI.Text parts1_muzzle_dtk;
+    public UnityEngine.UI.Text parts1_muzzle_reactor;
+    public UnityEngine.UI.Text parts1_muzzle_dtMount;
+    public UnityEngine.UI.Text parts1_muzzle_pbs4;
+    public UnityEngine.UI.Text parts1_muzzle_hexagon;
+    public UnityEngine.UI.Text parts1_muzzle_tgpA;
+    public UnityEngine.UI.Text parts1_muzzle_waffle;
+    public UnityEngine.UI.Text parts1_muzzle_hybrid46;
     public void localization()
     {
         parts1_hg_default.text = Parts.parts1_hg_default_text;
@@ -105,5 +121,21 @@ public class Localization : UdonSharpBehaviour
 
         parts1_rs_default.text = Parts.parts1_rs_default_text;
         parts1_rs_tt01.text = Parts.parts1_rs_tt01_text;
+
+        parts1_muzzle_default1.text = Parts.parts1_muzzle_default1_text;
+        parts1_muzzle_default2.text = Parts.parts1_muzzle_default2_text;
+        parts1_muzzle_default3.text = Parts.parts1_muzzle_default3_text;
+        parts1_muzzle_default4.text = Parts.parts1_muzzle_default4_text;
+        parts1_muzzle_cqb74.text = Parts.parts1_muzzle_cqb74_text;
+        parts1_muzzle_rrd.text = Parts.parts1_muzzle_rrd_text;
+        parts1_muzzle_srvv.text = Parts.parts1_muzzle_srvv_text;
+        parts1_muzzle_dtk.text = Parts.parts1_muzzle_dtk_text;
+        parts1_muzzle_reactor.text = Parts.parts1_muzzle_reactor_text;
+        parts1_muzzle_dtMount.text = Parts.parts1_muzzle_dtMount_text;
+        parts1_muzzle_pbs4.text = Parts.parts1_muzzle_pbs4_text;
+        parts1_muzzle_hexagon.text = Parts.parts1_muzzle_hexagon_text;
+        parts1_muzzle_tgpA.text = Parts.parts1_muzzle_tgpA_text;
+        parts1_muzzle_waffle.text = Parts.parts1_muzzle_waffle_text;
+        parts1_muzzle_hybrid46.text = Parts.parts1_muzzle_hybrid46_text;
     }
 }

@@ -101,6 +101,38 @@ public class Parts : UdonSharpBehaviour
     public string parts1_rs_default_text;
     public string parts1_rs_tt01_text;
 
+    //AK74のマズル
+    [UdonSynced] public bool parts1_muzzle_default1 = true;
+    [UdonSynced] public bool parts1_muzzle_cqb74;
+    [UdonSynced] public bool parts1_muzzle_rrd;
+    [UdonSynced] public bool parts1_muzzle_srvv;
+    [UdonSynced] public bool parts1_muzzle_dtk;
+    [UdonSynced] public bool parts1_muzzle_default2;
+    [UdonSynced] public bool parts1_muzzle_default3;
+    [UdonSynced] public bool parts1_muzzle_default4;
+    [UdonSynced] public bool parts1_muzzle_reactor;
+    [UdonSynced] public bool parts1_muzzle_dtMount;
+    [UdonSynced] public bool parts1_muzzle_pbs4;
+    [UdonSynced] public bool parts1_muzzle_hexagon;
+    [UdonSynced] public bool parts1_muzzle_tgpA;
+    [UdonSynced] public bool parts1_muzzle_waffle;
+    [UdonSynced] public bool parts1_muzzle_hybrid46;
+    public string parts1_muzzle_default1_text;
+    public string parts1_muzzle_default2_text;
+    public string parts1_muzzle_default3_text;
+    public string parts1_muzzle_default4_text;
+    public string parts1_muzzle_cqb74_text;
+    public string parts1_muzzle_rrd_text;
+    public string parts1_muzzle_srvv_text;
+    public string parts1_muzzle_dtk_text;
+    public string parts1_muzzle_reactor_text;
+    public string parts1_muzzle_dtMount_text;
+    public string parts1_muzzle_pbs4_text;
+    public string parts1_muzzle_hexagon_text;
+    public string parts1_muzzle_tgpA_text;
+    public string parts1_muzzle_waffle_text;
+    public string parts1_muzzle_hybrid46_text;
+
     //オブジェクト
     //AK74のハンドガード
     public GameObject w1hg_default;
@@ -154,6 +186,23 @@ public class Parts : UdonSharpBehaviour
     //リアサイト
     public GameObject w1rs_default;
     public GameObject w1rs_tt01;
+
+    //マズル
+    public GameObject w1muzzle_default1;
+    public GameObject w1muzzle_default2;
+    public GameObject w1muzzle_default3;
+    public GameObject w1muzzle_default4;
+    public GameObject w1muzzle_cqb74;
+    public GameObject w1muzzle_rrd;
+    public GameObject w1muzzle_srvv;
+    public GameObject w1muzzle_dtk;
+    public GameObject w1muzzle_reactor;
+    public GameObject w1muzzle_dtMount;
+    public GameObject w1muzzle_pbs4;
+    public GameObject w1muzzle_hexagon;
+    public GameObject w1muzzle_tgpA;
+    public GameObject w1muzzle_waffle;
+    public GameObject w1muzzle_hybrid46;
 
     public void checkLang()
     {
@@ -218,6 +267,22 @@ public class Parts : UdonSharpBehaviour
         parts1_rs_default_text = "AK基本リアサイト";
         parts1_rs_tt01_text = "AK用レイル付きリアサイト";
 
+        parts1_muzzle_default1_text = "AK-74基本マズル";
+        parts1_muzzle_default2_text = "AK-74M基本マズル";
+        parts1_muzzle_default3_text = "AKS-74U基本マズル";
+        parts1_muzzle_default4_text = "AK-105基本マズル";
+        parts1_muzzle_cqb74_text = "PWS CQB 74 マズルブレーキ";
+        parts1_muzzle_rrd_text = "JMac RRD-4C マルチキャリバーマズルブレーキ";
+        parts1_muzzle_srvv_text = "SRVV マズルブレーキ";
+        parts1_muzzle_dtk_text = "Zenit DTK-1 マズルブレーキ";
+        parts1_muzzle_reactor_text = "Hexagon Reactor マズルブレーキ";
+        parts1_muzzle_dtMount_text = "SilencerCo マルチキャリバーアダプター";
+        parts1_muzzle_pbs4_text = "AKS-74Uサプレッサー";
+        parts1_muzzle_hexagon_text = "Hexagonサプレッサー";
+        parts1_muzzle_tgpA_text = "TGP-Aサプレッサー";
+        parts1_muzzle_waffle_text = "Hexagon Wafflemaker サプレッサー";
+        parts1_muzzle_hybrid46_text = "SilencerCo マルチキャリバーサプレッサー";
+
         Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
     public void langEN()
@@ -266,6 +331,22 @@ public class Parts : UdonSharpBehaviour
 
         parts1_rs_default_text = "AK-74 Default Rear Sight";
         parts1_rs_tt01_text = "Taktika Tula TT01 Rear Sight Rail";
+
+        parts1_muzzle_default1_text = "AK-74 Default Muzzle";
+        parts1_muzzle_default2_text = "AK-74M Default Muzzle";
+        parts1_muzzle_default3_text = "AKS-74U Default Muzzle";
+        parts1_muzzle_default4_text = "AK-105 Default Muzzle";
+        parts1_muzzle_cqb74_text = "PWS CQB 74 Muzzle Brake";
+        parts1_muzzle_rrd_text = "JMac RRD-4C Multi-Caliber Muzzle Brake";
+        parts1_muzzle_srvv_text = "SRVV Muzzle Brake";
+        parts1_muzzle_dtk_text = "Zenit DTK-1 Muzzle Brake";
+        parts1_muzzle_reactor_text = "Hexagon Reactor Muzzle Brake";
+        parts1_muzzle_dtMount_text = "SilencerCo DT Mount";
+        parts1_muzzle_pbs4_text = "AKS-74U PBS-4 Suppressor";
+        parts1_muzzle_hexagon_text = "AK-74 Hexagon Suppressor";
+        parts1_muzzle_tgpA_text = "TGP-A Suppressor";
+        parts1_muzzle_waffle_text = "Hexagon Wafflemaker Suppressor";
+        parts1_muzzle_hybrid46_text = "SilencerCo DT Multi-Caliber Suppressor";
 
         Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
@@ -316,6 +397,22 @@ public class Parts : UdonSharpBehaviour
         parts1_rs_default_text = "AK-74 기본 가늠자";
         parts1_rs_tt01_text = "TT01 레일형 가늠자";
 
+        parts1_muzzle_default1_text = "AK-74 기본 머즐";
+        parts1_muzzle_default2_text = "AK-74M 기본 머즐";
+        parts1_muzzle_default3_text = "AKS-74U 기본 머즐";
+        parts1_muzzle_default4_text = "AK-105 기본 머즐";
+        parts1_muzzle_cqb74_text = "PWS CQB 74 머즐 브레이크";
+        parts1_muzzle_rrd_text = "JMac RRD-4C 다중 구경 머즐 브레이크";
+        parts1_muzzle_srvv_text = "SRVV 머즐 브레이크";
+        parts1_muzzle_dtk_text = "Zenit DTK-1 머즐 브레이크";
+        parts1_muzzle_reactor_text = "Hexagon Reactor 머즐 브레이크";
+        parts1_muzzle_dtMount_text = "SilencerCo 다중 구경 어댑터";
+        parts1_muzzle_pbs4_text = "AKS-74U PBS-4 소음기";
+        parts1_muzzle_hexagon_text = "Hexagon 소음기";
+        parts1_muzzle_tgpA_text = "TGP-A 소음기";
+        parts1_muzzle_waffle_text = "Hexagon Wafflemaker 소음기";
+        parts1_muzzle_hybrid46_text = "SilencerCo 다중 구경 소음기";
+
         Localization.SendCustomEventDelayedSeconds("localization", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
     public void reset1_hg()
@@ -363,7 +460,6 @@ public class Parts : UdonSharpBehaviour
         parts1_rs_tt01 = false;
         Debug.Log("Weapon 1 Rear Sight Reset");
     }
-
     public void reset1_cover()
     {
         parts1_cover_b33 = false;
@@ -373,6 +469,25 @@ public class Parts : UdonSharpBehaviour
         parts1_cover_dogLeg = false;
         Debug.Log("Weapon 1 Cover Reset");
     }
+    public void reset1_muzzle()
+    {
+        parts1_muzzle_default1 = false;
+        parts1_muzzle_default2 = false;
+        parts1_muzzle_default3 = false;
+        parts1_muzzle_default4 = false;
+        parts1_muzzle_cqb74 = false;
+        parts1_muzzle_rrd = false;
+        parts1_muzzle_srvv = false;
+        parts1_muzzle_dtk = false;
+        parts1_muzzle_reactor = false;
+        parts1_muzzle_dtMount = false;
+        parts1_muzzle_pbs4 = false;
+        parts1_muzzle_hexagon = false;
+        parts1_muzzle_tgpA = false;
+        parts1_muzzle_waffle = false;
+        parts1_muzzle_hybrid46 = false;
+        Debug.Log("Weapon 1 Muzzle Reset");
+    }
 
 
 
@@ -381,9 +496,11 @@ public class Parts : UdonSharpBehaviour
         SendCustomEvent("reset1_rs");
         SendCustomEvent("reset1_hg");
         SendCustomEvent("reset1_cover");
+        SendCustomEvent("reset1_muzzle");
         SendCustomEvent("check1Handguards");
         SendCustomEvent("check1RearSights");
         SendCustomEvent("check1Covers");
+        SendCustomEvent("check1Muzzles");
     }
     public void check1Handguards()
     {
@@ -594,6 +711,69 @@ public class Parts : UdonSharpBehaviour
         {
             w1rs_tt01.SetActive(true);
             w1rs_default.SetActive(false);
+        }
+    }
+    public void check1Muzzles()
+    {
+        if (parts1_muzzle_default1)
+        {
+            w1muzzle_default1.SetActive(true);
+        }
+        if (parts1_muzzle_default2)
+        {
+            w1muzzle_default2.SetActive(true);
+        }
+        if (parts1_muzzle_default3)
+        {
+            w1muzzle_default3.SetActive(true);
+        }
+        if (parts1_muzzle_default4)
+        {
+            w1muzzle_default4.SetActive(true);
+        }
+        if (parts1_muzzle_cqb74)
+        {
+            w1muzzle_cqb74.SetActive(true);
+        }
+        if (parts1_muzzle_rrd)
+        {
+            w1muzzle_rrd.SetActive(true);
+        }
+        if (parts1_muzzle_srvv)
+        {
+            w1muzzle_srvv.SetActive(true);
+        }
+        if (parts1_muzzle_dtk)
+        {
+            w1muzzle_dtk.SetActive(true);
+        }
+        if (parts1_muzzle_reactor)
+        {
+            w1muzzle_reactor.SetActive(true);
+        }
+        if (parts1_muzzle_dtMount)
+        {
+            w1muzzle_dtMount.SetActive(true);
+        }
+        if (parts1_muzzle_pbs4)
+        {
+            w1muzzle_pbs4.SetActive(true);
+        }
+        if (parts1_muzzle_hexagon)
+        {
+            w1muzzle_hexagon.SetActive(true);
+        }
+        if (parts1_muzzle_tgpA)
+        {
+            w1muzzle_tgpA.SetActive(true);
+        }
+        if (parts1_muzzle_waffle)
+        {
+            w1muzzle_waffle.SetActive(true);
+        }
+        if (parts1_muzzle_hybrid46)
+        {
+            w1muzzle_hybrid46.SetActive(true);
         }
     }
 }
