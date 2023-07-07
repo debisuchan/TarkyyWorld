@@ -10,6 +10,7 @@ public class PanelColor : UdonSharpBehaviour
     public RearSight RearSight;
     public Cover Cover;
     public Panel Panel;
+    public Muzzle Muzzle;
     
     public UnityEngine.UI.Image img_coverDefault;
     public UnityEngine.UI.Image img_coverBastion;
@@ -352,7 +353,24 @@ public class PanelColor : UdonSharpBehaviour
     }
     public void fourth()
     {
-
+        /*
+        if (Muzzle.muzzle_default1.activeSelf 
+        || Muzzle.muzzle_default2.activeSelf 
+        || Muzzle.muzzle_default3.activeSelf 
+        || Muzzle.muzzle_default4.activeSelf 
+        || Muzzle.muzzle_cqb74.activeSelf 
+        || Muzzle.muzzle_rrd.activeSelf 
+        || Muzzle.muzzle_srvv.activeSelf 
+        || Muzzle.muzzle_dtk.activeSelf 
+        || Muzzle.muzzle_pbs4.activeSelf 
+        || Muzzle.muzzle_hexagon.activeSelf 
+        || Muzzle.muzzle_tgpA.activeSelf)
+        {
+            
+        }
+        */
+        if (Muzzle.muzzle_reactor)
+        {}
     }
 
     //new Color32(255, 150, 150, 255); //FF9696 - X

@@ -6,6 +6,7 @@ using VRC.Udon;
 public class Muzzle : UdonSharpBehaviour
 {
     public PanelColor PanelColor;
+    public Attachments Attachments;
     public Detachments Detachments;
     public Parts Parts;
     public Settings Settings;
@@ -25,6 +26,12 @@ public class Muzzle : UdonSharpBehaviour
     public GameObject muzzle_tgpA; //AK-74 TGP-A 5.45x39 sound suppressor
     public GameObject muzzle_waffle; //AK-74 Hexagon Wafflemaker 5.45x39 sound suppressor
     public GameObject muzzle_hybrid46; //SilencerCo Hybrid 46 multi-caliber sound suppressor
+
+    public GameObject error1;
+    public GameObject error2;
+    public UnityEngine.UI.Text errorPartText1;
+    
+    public UnityEngine.UI.Text errorPartText2;
 
     public void attachDefault1()
     {
@@ -147,16 +154,38 @@ public class Muzzle : UdonSharpBehaviour
     {
         if (muzzle_reactor.activeSelf)
         {
-            SendCustomEvent("disableAll");
-            muzzle_waffle.SetActive(true);
+            if (!Parts.w1hg_hexagon1.activeSelf)
+            {    
+                if (!Parts.w1hg_hexagon2.activeSelf)
+                {
+                    SendCustomEvent("disableAll");
+                    muzzle_waffle.SetActive(true);
 
-            Parts.reset1_muzzle();
-            Parts.parts1_muzzle_reactor = true;
-            Parts.parts1_muzzle_waffle = true;
-            SendCustomEvent("check");
+                    Parts.reset1_muzzle();
+                    Parts.parts1_muzzle_reactor = true;
+                    Parts.parts1_muzzle_waffle = true;
+                    SendCustomEvent("check");
+                }
+                if (Parts.w1hg_hexagon2.activeSelf)
+                {
+                    error1.SetActive(true);
+                    errorPartText1.text = Parts.parts1_hg_hexagon2_text;
+                    Detachments.detach1HexRed = true;
+                }
+            }    
+            if (Parts.w1hg_hexagon1.activeSelf)
+            {
+                error1.SetActive(true);
+                errorPartText1.text = Parts.parts1_hg_hexagon1_text;
+                Detachments.detach1HexBlk = true;
+            } 
         }
         if (!muzzle_reactor.activeSelf)
-        {}
+        {
+            error2.SetActive(true);
+            errorPartText2.text = Parts.parts1_muzzle_reactor_text;
+            Attachments.attach1Reactor = true;
+        }
     }
     public void attachHybrid46()
     {
@@ -171,7 +200,11 @@ public class Muzzle : UdonSharpBehaviour
             SendCustomEvent("check");
         }
         if (!muzzle_dtMount.activeSelf)
-        {}
+        {
+            error2.SetActive(true);
+            errorPartText2.text = Parts.parts1_muzzle_dtMount_text;
+            Attachments.attach1DTMount = true;
+        }
     }
 
     public void disableAll()
