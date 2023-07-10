@@ -17,7 +17,7 @@ public class Attachments : UdonSharpBehaviour
     public UnityEngine.UI.Text errorPartText;
     public void errorYes()
     {
-        PanelColor.check();
+        PanelColor.newChecking();
 
         if (attach1Reactor)
         {
@@ -36,7 +36,7 @@ public class Attachments : UdonSharpBehaviour
 
         SendCustomEvent("allAttachIsFalse");
         error.SetActive(false);
-        PanelColor.SendCustomEvent("check");
+        PanelColor.SendCustomEvent("newChecking");
     }
     public void allAttachIsFalse()
     {

@@ -78,7 +78,7 @@ public class Cover : UdonSharpBehaviour
 
         Parts.parts1_cover_default = true;
 
-        PanelColor.SendCustomEvent("third");
+        PanelColor.SendCustomEvent("newChecking");
     }
     public void attachBastion()
     {
@@ -92,7 +92,7 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_bastion = true;
             SendCustomEvent("check");
 
-            PanelColor.SendCustomEvent("third");
+            PanelColor.SendCustomEvent("newChecking");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {
@@ -130,7 +130,7 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_pdc = true;
             SendCustomEvent("check");
 
-            PanelColor.SendCustomEvent("third");
+            PanelColor.SendCustomEvent("newChecking");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {
@@ -200,7 +200,7 @@ public class Cover : UdonSharpBehaviour
                 Parts.parts1_cover_b33 = true;
                 SendCustomEvent("check");
 
-                PanelColor.SendCustomEvent("third");
+                PanelColor.SendCustomEvent("newChecking");
             }
             if (Handguard.hg_quadRail2.activeSelf)
             {
@@ -414,7 +414,7 @@ public class Cover : UdonSharpBehaviour
             Parts.parts1_cover_dogLeg = true;
             SendCustomEvent("check");
 
-            PanelColor.SendCustomEvent("third");
+            PanelColor.SendCustomEvent("newChecking");
         }
         if (Handguard.hg_keymod3.activeSelf)
         {

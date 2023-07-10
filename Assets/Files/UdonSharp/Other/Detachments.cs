@@ -65,7 +65,7 @@ public class Detachments : UdonSharpBehaviour
     //  エラー画面のためにコードされたメソッド
     public void errorYes()
     {
-        PanelColor.check();
+        PanelColor.newChecking();
 
         //WEAPON 1 REAR SIGHT
         if (detach1Default == true)
@@ -324,7 +324,7 @@ public class Detachments : UdonSharpBehaviour
 
         SendCustomEvent("allDetachIsFalse");
         error.SetActive(false);
-        PanelColor.SendCustomEvent("check");
+        PanelColor.SendCustomEvent("newChecking");
 
     }
     public void allDetachIsFalse()
