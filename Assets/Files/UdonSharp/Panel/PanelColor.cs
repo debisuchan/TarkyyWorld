@@ -56,8 +56,14 @@ public class PanelColor : UdonSharpBehaviour
     public UnityEngine.UI.Image img_hgGasBlock2;
     public UnityEngine.UI.Image img_hgGasBlock3; 
     public UnityEngine.UI.Image img_hgGasBlock4;
+
+    public UnityEngine.UI.Image img_muzzleWaffle;
+    public UnityEngine.UI.Image img_muzzleHyb46;
+    
     
     //ハンドガード
+
+    /* 新たなメソッドで全体的にチェックするメソッド導入「」
     public void check()
     {
         Reset1();
@@ -68,6 +74,7 @@ public class PanelColor : UdonSharpBehaviour
         SendCustomEventDelayedSeconds("second", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
         SendCustomEventDelayedSeconds("third", 0.5f, VRC.Udon.Common.Enums.EventTiming.Update);
     }
+    */
     
     public void Execute1()
     {
@@ -105,14 +112,12 @@ public class PanelColor : UdonSharpBehaviour
             img_rearTT01.color = new Color32(255, 255, 255, 255);
             Handguard1();
         }
-        /*
-        if (Handguard.hg_polymer2.activeSelf || Handguard.hg_polymerRail2.activeSelf || Handguard.hg_magpulA1.activeSelf)
+        if (Handguard.hg_polymer2.activeSelf || Handguard.hg_polymerRail.activeSelf || Handguard.hg_magpulA1.activeSelf)
         {
             img_rearDefault.color = new Color32(255, 255, 255, 255);
             img_rearTT01.color = new Color32(255, 255, 255, 255);
             Handguard1();
         }
-        */
         if (Handguard.hg_magpulA2.activeSelf || Handguard.hg_magpulA3.activeSelf || Handguard.hg_magpulA4.activeSelf)
         {
             img_rearDefault.color = new Color32(255, 255, 255, 255);
@@ -137,7 +142,7 @@ public class PanelColor : UdonSharpBehaviour
             img_rearTT01.color = new Color32(255, 255, 255, 255);
             Handguard1();
         }
-        if (Handguard.hg_keymod2.activeSelf || Handguard.hg_keymod4.activeSelf || Handguard.hg_keymod4.activeSelf)
+        if (Handguard.hg_keymod2.activeSelf || Handguard.hg_keymod4.activeSelf)
         {
             img_rearDefault.color = new Color32(255, 255, 255, 255);
             img_rearTT01.color = new Color32(255, 255, 255, 255);
@@ -372,6 +377,7 @@ public class PanelColor : UdonSharpBehaviour
         if (Muzzle.muzzle_reactor)
         {}
     }
+    
 
     //new Color32(255, 150, 150, 255); //FF9696 - X
     //new Color32(255, 255, 255, 255); //FFFFFF - O
@@ -429,5 +435,241 @@ public class PanelColor : UdonSharpBehaviour
     {
         img_rearDefault.color = new Color32(255, 255, 255, 255);
         img_rearTT01.color = new Color32(255, 255, 255, 255);
+    }
+
+
+    public void newChecking()
+    {
+        if (Handguard.hg_default.activeSelf 
+        || Handguard.hg_wooden1.activeSelf 
+        || Handguard.hg_wooden2.activeSelf 
+        || Handguard.hg_wooden3.activeSelf 
+        || Handguard.hg_woodenGrip.activeSelf 
+        || Handguard.hg_polymer1.activeSelf 
+        || Handguard.hg_polymer2.activeSelf 
+        || Handguard.hg_polymerRail.activeSelf 
+        || Handguard.hg_magpulA1.activeSelf 
+        || Handguard.hg_magpulA2.activeSelf 
+        || Handguard.hg_magpulA3.activeSelf 
+        || Handguard.hg_magpulA4.activeSelf 
+        || Handguard.hg_magpulA5.activeSelf 
+        || Handguard.hg_magpulB1.activeSelf 
+        || Handguard.hg_magpulB2.activeSelf 
+        || Handguard.hg_magpulB3.activeSelf 
+        || Handguard.hg_quadRail1.activeSelf 
+        || Handguard.hg_quadRail2.activeSelf 
+        || Handguard.hg_hexagon1.activeSelf 
+        || Handguard.hg_hexagon2.activeSelf 
+        || Handguard.hg_keymod1.activeSelf 
+        || Handguard.hg_keymod2.activeSelf 
+        || Handguard.hg_keymod4.activeSelf 
+        || Handguard.hg_mlok1.activeSelf 
+        || Handguard.hg_mlok2.activeSelf 
+        || Handguard.hg_mlok3.activeSelf 
+        || Handguard.hg_zenit1.activeSelf 
+        || Handguard.hg_gasBlock1.activeSelf 
+        || Handguard.hg_gasBlock2.activeSelf 
+        || Handguard.hg_gasBlock3.activeSelf 
+        || Handguard.hg_gasBlock4.activeSelf)
+        {
+            img_coverB33.color = new Color32(255, 150, 150, 255);
+            if (RearSight.defaultRear.activeSelf)
+            {
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+                if (Cover.coverPDC.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                    img_hgQuadRail3.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod3.color = new Color32(255, 150, 150, 255);
+                }
+            }
+            if (RearSight.TT01Rear.activeSelf)
+            {
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+                img_hgQuadRail3.color = new Color32(255, 150, 150, 255);
+                img_hgKeymod3.color = new Color32(255, 150, 150, 255);
+
+            }
+            if (!RearSight.defaultRear.activeSelf && !RearSight.TT01Rear.activeSelf)
+            {
+                if (Cover.coverDogLeg.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                    img_rearDefault.color = new Color32(255, 150, 150, 255);
+                }
+                if (Cover.coverBastion.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                    img_rearDefault.color = new Color32(255, 150, 150, 255);
+                }
+                if (Cover.coverPDC.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                }
+            }
+            if (Handguard.hg_hexagon1.activeSelf || Handguard.hg_hexagon2.activeSelf)
+            {
+                img_muzzleWaffle.color = new Color32(255, 150, 150, 255);
+            }
+        }
+        if (Handguard.hg_quadRail3.activeSelf || Handguard.hg_keymod3.activeSelf)
+        {
+            img_rearTT01.color = new Color32(255, 150, 150, 255);
+            img_coverB33.color = new Color32(255, 150, 150, 255);
+            img_coverBastion.color = new Color32(255, 150, 150, 255);
+            img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+            img_coverPDC.color = new Color32(255, 150, 150, 255);
+        }
+        if (Handguard.hg_zenit2.activeSelf || Handguard.hg_zenit3.activeSelf)
+        {
+            if (RearSight.defaultRear.activeSelf)
+            {
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+                if (Cover.coverPDC.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                    img_hgQuadRail3.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod3.color = new Color32(255, 150, 150, 255);
+                }
+                if (Cover.coverZenit.activeSelf)
+                {
+                    img_rearTT01.color = new Color32(255, 150, 150, 255);
+                    img_hgDefault.color = new Color32(255, 150, 150, 255);
+                    img_hgWooden1.color = new Color32(255, 150, 150, 255);
+                    img_hgWooden2.color = new Color32(255, 150, 150, 255);
+                    img_hgWooden3.color = new Color32(255, 150, 150, 255);
+                    img_hgWoodenGrip.color = new Color32(255, 150, 150, 255);
+                    img_hgPolymer1.color = new Color32(255, 150, 150, 255);
+                    img_hgPolymer2.color = new Color32(255, 150, 150, 255);
+                    img_hgPolymerRail.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulA1.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulA2.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulA3.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulA4.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulA5.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulB1.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulB2.color = new Color32(255, 150, 150, 255);
+                    img_hgMagpulB3.color = new Color32(255, 150, 150, 255);
+                    img_hgQuadRail1.color = new Color32(255, 150, 150, 255);
+                    img_hgQuadRail2.color = new Color32(255, 150, 150, 255);
+                    img_hgQuadRail3.color = new Color32(255, 150, 150, 255);
+                    img_hgHexagon1.color = new Color32(255, 150, 150, 255);
+                    img_hgHexagon2.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod1.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod2.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod3.color = new Color32(255, 150, 150, 255);
+                    img_hgKeymod4.color = new Color32(255, 150, 150, 255);
+                    img_hgMlok1.color = new Color32(255, 150, 150, 255);
+                    img_hgMlok2.color = new Color32(255, 150, 150, 255);
+                    img_hgMlok3.color = new Color32(255, 150, 150, 255);
+                    img_hgZenit1.color = new Color32(255, 150, 150, 255);
+                    img_hgGasBlock1.color = new Color32(255, 150, 150, 255);
+                    img_hgGasBlock2.color = new Color32(255, 150, 150, 255);
+                    img_hgGasBlock3.color = new Color32(255, 150, 150, 255);
+                    img_hgGasBlock4.color = new Color32(255, 150, 150, 255);
+                }
+            }
+            if (RearSight.TT01Rear.activeSelf)
+            {
+                img_coverB33.color = new Color32(255, 150, 150, 255);
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+                img_coverPDC.color = new Color32(255, 150, 150, 255);
+            }
+        }
+        if (Handguard.hg_default.activeSelf 
+        && Handguard.hg_wooden1.activeSelf 
+        && Handguard.hg_wooden2.activeSelf 
+        && Handguard.hg_wooden3.activeSelf 
+        && Handguard.hg_woodenGrip.activeSelf 
+        && Handguard.hg_polymer1.activeSelf 
+        && Handguard.hg_polymer2.activeSelf 
+        && Handguard.hg_polymerRail.activeSelf 
+        && Handguard.hg_magpulA1.activeSelf 
+        && Handguard.hg_magpulA2.activeSelf 
+        && Handguard.hg_magpulA3.activeSelf 
+        && Handguard.hg_magpulA4.activeSelf 
+        && Handguard.hg_magpulA5.activeSelf 
+        && Handguard.hg_magpulB1.activeSelf 
+        && Handguard.hg_magpulB2.activeSelf 
+        && Handguard.hg_magpulB3.activeSelf 
+        && Handguard.hg_quadRail1.activeSelf 
+        && Handguard.hg_quadRail2.activeSelf 
+        && Handguard.hg_quadRail3.activeSelf 
+        && Handguard.hg_hexagon1.activeSelf 
+        && Handguard.hg_hexagon2.activeSelf 
+        && Handguard.hg_keymod1.activeSelf 
+        && Handguard.hg_keymod2.activeSelf 
+        && Handguard.hg_keymod3.activeSelf 
+        && Handguard.hg_keymod4.activeSelf 
+        && Handguard.hg_mlok1.activeSelf 
+        && Handguard.hg_mlok2.activeSelf 
+        && Handguard.hg_mlok3.activeSelf 
+        && Handguard.hg_zenit1.activeSelf 
+        && Handguard.hg_zenit2.activeSelf 
+        && Handguard.hg_zenit3.activeSelf 
+        && Handguard.hg_gasBlock1.activeSelf 
+        && Handguard.hg_gasBlock2.activeSelf 
+        && Handguard.hg_gasBlock3.activeSelf 
+        && Handguard.hg_gasBlock4.activeSelf)
+        {
+            if (RearSight.defaultRear.activeSelf)
+            {
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+            }
+            if (RearSight.TT01Rear.activeSelf)
+            {
+                img_coverBastion.color = new Color32(255, 150, 150, 255);
+                img_coverDogLeg.color = new Color32(255, 150, 150, 255);
+                img_coverPDC.color = new Color32(255, 150, 150, 255);
+                img_coverB33.color = new Color32(255, 150, 150, 255);
+                img_hgQuadRail3.color = new Color32(255, 150, 150, 255);
+                img_hgKeymod3.color = new Color32(255, 150, 150, 255);
+            }
+        }
+        if (Muzzle.muzzle_default1.activeSelf 
+        || Muzzle.muzzle_default2.activeSelf 
+        || Muzzle.muzzle_default3.activeSelf 
+        || Muzzle.muzzle_default4.activeSelf 
+        || Muzzle.muzzle_cqb74.activeSelf 
+        || Muzzle.muzzle_rrd.activeSelf 
+        || Muzzle.muzzle_srvv.activeSelf 
+        || Muzzle.muzzle_dtk.activeSelf 
+        || Muzzle.muzzle_pbs4.activeSelf 
+        || Muzzle.muzzle_hexagon.activeSelf 
+        || Muzzle.muzzle_tgpA.activeSelf)
+        {
+            img_muzzleHyb46.color = new Color32(255, 150, 150, 255);
+            img_muzzleWaffle.color = new Color32(255, 150, 150, 255);
+        }
+        if (Muzzle.muzzle_dtMount.activeSelf)
+        {
+            img_muzzleWaffle.color = new Color32(255, 150, 150, 255);
+        }
+        if (Muzzle.muzzle_reactor.activeSelf)
+        {
+            img_muzzleHyb46.color = new Color32(255, 150, 150, 255);
+        }
+        if (!Muzzle.muzzle_default1.activeSelf 
+        && !Muzzle.muzzle_default2.activeSelf 
+        && !Muzzle.muzzle_default3.activeSelf 
+        && !Muzzle.muzzle_default4.activeSelf 
+        && !Muzzle.muzzle_cqb74.activeSelf 
+        && !Muzzle.muzzle_rrd.activeSelf 
+        && !Muzzle.muzzle_srvv.activeSelf 
+        && !Muzzle.muzzle_dtk.activeSelf 
+        && !Muzzle.muzzle_pbs4.activeSelf 
+        && !Muzzle.muzzle_hexagon.activeSelf 
+        && !Muzzle.muzzle_tgpA.activeSelf 
+        && !Muzzle.muzzle_dtMount.activeSelf 
+        && !Muzzle.muzzle_reactor.activeSelf)
+        {
+            img_muzzleHyb46.color = new Color32(255, 150, 150, 255);
+            img_muzzleWaffle.color = new Color32(255, 150, 150, 255);
+        }
     }
 }
