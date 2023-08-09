@@ -67,7 +67,7 @@ public class Panel : UdonSharpBehaviour
     public string defaultText;
     public string textRearSight;
 
-    public bool bool_weapon1;
+    [UdonSynced] public bool bool_weapon1;
 
     //設定パネル変数
     public bool modderOnlyMode = true;

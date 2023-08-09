@@ -27,8 +27,14 @@ public class Settings : UdonSharpBehaviour
     public GameObject LOCKED;
 
 
+    public Transform tWeapon1;
+    [UdonSynced] public int weapon1Size = 10;
+    public UnityEngine.UI.Slider weaponSizeSlider;
+
+
     [UdonSynced] public bool playerLock;
     [UdonSynced] public string playerName;
+    
 
 
     public void lockOtherPlayer()
@@ -71,6 +77,98 @@ public class Settings : UdonSharpBehaviour
 
         }
 
+    }
+
+    public void setWeaponSizeToAll()
+    {
+        SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "setWeaponSize");
+    }
+    //set every weapon size to handle every value of weapon size slider setting.
+    public void setWeaponSize()
+    {
+        //if (Panel.bool_weapon1)
+        //{   
+            if (weaponSizeSlider.value == 1)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            }
+            if (weaponSizeSlider.value == 2)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            }
+            if (weaponSizeSlider.value == 3)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            }
+            if (weaponSizeSlider.value == 4)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.4f, 0.3f, 0.3f);
+            }
+            if (weaponSizeSlider.value == 5)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            }
+            if (weaponSizeSlider.value == 6)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            }
+            if (weaponSizeSlider.value == 7)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            }
+            if (weaponSizeSlider.value == 8)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            }
+            if (weaponSizeSlider.value == 9)
+            {
+                tWeapon1.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            }
+            if (weaponSizeSlider.value == 10)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            if (weaponSizeSlider.value == 11)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            }
+            if (weaponSizeSlider.value == 12)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            }
+            if (weaponSizeSlider.value == 13)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+            }
+            if (weaponSizeSlider.value == 14)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.4f, 1.3f, 1.3f);
+            }
+            if (weaponSizeSlider.value == 15)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            }
+            if (weaponSizeSlider.value == 16)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            }
+            if (weaponSizeSlider.value == 17)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+            }
+            if (weaponSizeSlider.value == 18)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
+            }
+            if (weaponSizeSlider.value == 19)
+            {
+                tWeapon1.transform.localScale = new Vector3(1.9f, 1.9f, 1.9f);
+            }
+            if (weaponSizeSlider.value == 20)
+            {
+                tWeapon1.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+            }
+        //}
     }
 
     public void langJP()
